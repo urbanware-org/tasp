@@ -1,0 +1,132 @@
+
+USAGE (tasp-indent.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+          2.3  Before using this script
+          2.4  Output of processed data
+          2.5  Skip the confirmation prompt
+          2.6  Indentation of source code
+        3.  Consistent indentation of a messed up file
+
+    1. Definition
+
+        The TaSp Indent script consistently indents messed up files
+        (especially config files) using a user-defined amount of spaces.
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./tasp-indent.py --help
+
+        2.3 Before using this script
+
+            It is strongly recommended to replace all tabs with spaces using
+            the TaSp replace script first. Otherwise the indentation process
+            may not work properly and the files will not be consistently
+            indented.
+
+        2.4 Output of processed data
+
+            By default, the TaSp Indent script will only read the input files,
+            so the original files will not be overwritten. For example, if the
+            file
+
+                /tmp/foobar/someconfig.cfg
+
+            will be processed, the script will create an output file inside
+            the same directory as the processed file and with the same name
+            followed by the additional suffix ".tasp":
+
+                /tmp/foobar/someconfig.cfg.tasp
+
+            You can also overwrite the input files with the processed data
+            instead of creating an output file. To do this, simply append the
+            "--overwrite" argument to the command line.
+
+        2.5 Skip the confirmation prompt
+
+            When overwriting the input files, the script will always show a
+            notice before processing any data which has to be confirmed. To
+            automatically confirm this notice (e. g. for scripting purposes),
+            you need to add the "--confirm" argument to the command line.
+
+        2.6 Indentation of source code
+
+            This script is not suitable for indenting source code. Its main
+            purpose is indenting e. g. config files to make them more readable
+            and easier to manage.
+
+            Using this script to indent source code of programming languages
+            that use whitespace indentation (such as Python) is absolutely NOT
+            recommended, as it will result in messed up and useless code.
+
+    3.  Consistent indentation of a messed up file
+
+        Please see the above sections 2.3 and 2.4 first.
+
+        For example, if you have config files which are messed up like this
+
+            server myserver {
+               ip_address    192.168.1.1;  # IP address
+              name   myserver.foo.bar;   # host name
+                  type    foobar;  # server type
+                 description    foobar server;  # server description
+            }
+
+        you can simply use the TaSp Indent script to get a consistent
+        indentation inside them:
+
+            server myserver {
+                ip_address          192.168.1.1;        # IP address
+                name                myserver.foo.bar;   # host name
+                type                foobar;             # server type
+                description         foobar server;      # server description
+            }
+
+        In this example, these config files have the file extension "cfg" and
+        are located inside the directory "/tmp/foobar". So, to indent all the
+        files with the same, the command line would look like this:
+
+            $ ./tasp-indent.py -d /tmp/foobar -f cfg --overwrite -s 4 -p 20
+
+        There are two values required to indent the lines. First, the amount
+        of leading spaces for each indented line, given by the "-s" argument.
+        For example, an amount of 4 spaces:
+
+            server myserver {
+                ip_address          192.168.1.1;        # IP address
+            ....|
+            1234|
+
+        The second value is the padding (in spaces) for each item per indented
+        line, given by the "-p" argument. For example, a padding of 20:
+
+            server myserver {
+                ip_address          192.168.1.1;        # IP address
+                ....................|...................|
+                         1         2|        1         2|
+                1234567890123456789012345678901234567890|
+
+        You can also process the given directory recursively:
+
+            $ ./tasp-indent.py -d /tmp/foobar -f cfg -r --overwrite -s 4 -p 20
+

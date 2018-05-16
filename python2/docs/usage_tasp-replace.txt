@@ -1,0 +1,114 @@
+
+USAGE (tasp-replace.py)
+
+    Contents:
+
+        1.  Definition
+        2.  General stuff
+          2.1  How to run Python scripts
+          2.2  Overview of all command-line arguments
+          2.3  What this script does
+          2.4  Output of processed data
+          2.5  Skip the confirmation prompt
+        3.  Replacing tabs with spaces
+        4.  Replacing spaces with tabs
+
+    1. Definition
+
+        The TaSp Replace script simply replaces tabs inside of files with a
+        user-defined amount of spaces and vice versa.
+
+    2. General stuff
+
+        2.1 How to run Python scripts
+
+            All usage examples below show how to execute the Python scripts on
+            the shell of a Unix-like system. If you do not know, how to run
+            those scripts on your operating system, you may have a look at
+            this page:
+
+                http://www.urbanware.org/howto_python.html
+
+        2.2 Overview of all command-line arguments
+
+            Usually, each script requires command-line arguments to operate.
+            So, to get an overview of all arguments available, simply run the
+            script with the "--help" argument. For example:
+
+                $ ./tasp-replace.py --help
+
+        2.3 What this script does
+
+            Please note that this script only changes the indentation method
+            by basically replacing tabs with spaces or vice versa, but not the
+            indentation itself.
+
+            To change the indentation, you may run the TaSp indent script
+            instead:
+
+                $ ./tasp-indent.py --help
+
+        2.4 Output of processed data
+
+            By default, the TaSp Replace script will only read the input
+            files, so the original files will not be overwritten. For example,
+            if the file
+
+                /tmp/foobar/someconfig.cfg
+
+            will be processed, the script will create an output file inside
+            the same directory as the processed file and with the same name
+            followed by the additional suffix ".tasp":
+
+                /tmp/foobar/someconfig.cfg.tasp
+
+            You can also overwrite the input files with the processed data
+            instead of creating an output file. To do this, simply append the
+            "--overwrite" argument to the command line.
+
+        2.5 Skip the confirmation prompt
+
+            When overwriting the input files, the script will always show a
+            notice before processing any data which has to be confirmed. To
+            automatically confirm this notice (e. g. for scripting purposes),
+            you need to add the "--confirm" argument to the command line.
+
+    3. Replacing tabs with spaces
+
+        Please see the above sections 2.3 and 2.4 first.
+
+        For example, if you want to replace all tabs with four whitespaces
+        inside all files with the file extension "cfg" that are located in the
+        directory "/tmp/foobar", the command line would look like this:
+
+            $ ./tasp-replace.py -d /tmp/foobar -f cfg -m spaces -s 4
+
+        If you want to replace the tabs with eight whitespaces instead of
+        four, type:
+
+            $ ./tasp-replace.py -d /tmp/foobar -f cfg -m spaces -s 8
+
+        You can also process the given directory recursively:
+
+            $ ./tasp-replace.py -d /tmp/foobar -f cfg -m spaces -s 8 -r
+
+    4. Replacing spaces with tabs
+
+        Please see the above sections 2.3 and 2.4 first.
+
+        For example, if you want to replace each group of four whitespaces
+        with tabs inside all files with the file extension "cfg" that are
+        located in the directory "/tmp/foobar", the command line would look
+        like this:
+
+            $ ./tasp-replace.py -d /tmp/foobar -f cfg -m tabs -s 4
+
+        If you want to replace each group of eight whitespaces instead of four
+        with a tab, type:
+
+            $ ./tasp-replace.py -d /tmp/foobar -f cfg -m tabs -s 8
+
+        You can also process the given directory recursively:
+
+            $ ./tasp-replace.py -d /tmp/foobar -f cfg -m tabs -s 8 -r
+

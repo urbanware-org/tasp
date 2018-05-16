@@ -1,0 +1,17 @@
+
+REQUIREMENTS (TaSp)
+
+    Notice
+
+        This version of TaSp was built for the Python 2.x framework. If you
+        need a version that works with Python 3.x, you may look here:
+
+            http://www.urbanware.org/tasp.html
+
+    General
+
+        Software requirements:
+
+            - Python 2.x (version 2.7 or higher is recommended, may also work
+                          with earlier versions)
+

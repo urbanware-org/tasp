@@ -1,0 +1,89 @@
+
+CHANGELOG (TaSp)
+
+    Version 2.0.10 (2018-04-07)
+
+        + Added new versions of the Clap and PaVal core modules (replaced the
+          existing ones).
+
+        * Revised (refurbished) all components of the project in general
+          (negligible changes).
+
+    Version 2.0.9 (2015-04-04)
+
+        + Added an optional command-line argument to the Tasp Indent component
+          to left-justify the line if it only consists of a single character.
+
+        * Revised (renamed) the command-line argument for the padding used to
+          indent (for more clarity).
+        * Revised the description of some command-line arguments inside the
+          TaSp Indent script.
+
+    Version 2.0.8 (2015-01-24)
+
+        * Revised some code inside the TaSp Indent as well as the TaSp Replace
+          core module (negligible changes).
+        * Revised the confirmation prompt inside the TaSp Common core module.
+        * Revised the description of some command-line arguments inside the
+          TaSp scripts (for more clarity).
+
+    Version 2.0.7 (2014-03-22)
+
+        * Revised (reduced) some code inside the TaSp Common and TaSp Indent
+          core module.
+        * Revised the confirmation prompt inside the TaSp Common core module.
+        * Revised the output of the verbose mode of the TaSp scripts (added
+          some blank lines).
+
+    Version 2.0.6 (2014-03-13)
+
+        + Added an error handler to the TaSp scripts in case no command-line
+          argument parser can be initialized.
+
+        * Revised the output messages of the verbose mode (added some further
+          status messages).
+
+    Version 2.0.5 (2014-03-08)
+
+        * Revised the description of further command-line arguments inside the
+          TaSp scripts (for more consistency as well as more clarity).
+        * Revised the output messages of the verbose mode (added file numbers
+          for basic progress information).
+
+    Version 2.0.4 (2014-03-05)
+
+        + Added an optional command-line argument to enable verbose mode for
+          the TaSp scripts.
+
+        * Revised the description of some command-line arguments inside the
+          TaSp scripts.
+        * Revised the method to print a text box inside the TaSp Common core
+          module (which reduced some code).
+
+    Version 2.0.3 (2014-02-19)
+
+        + Added a confirmation prompt before overwriting any input files.
+        + Added an optional command-line argument to skip the confirmation
+          prompt and instantly process the data (for scripting purposes).
+
+    Version 2.0.2 (2014-02-11)
+
+        * Revised the handling of temporary files inside the TaSp Indent and
+          TaSp Replace core module.
+
+        - Removed some unnecessary module imports from all project modules.
+
+    Version 2.0.1 (2014-02-05)
+
+        * Revised the description of some command-line arguments inside the
+          TaSp Indent script.
+        * Revised the method to indent each line inside the TaSp Indent core
+          module (which reduced some code).
+
+        # Fixed the indentation bug inside the TaSp Indent core module (some
+          lines have not been indented correctly).
+
+    Version 2.0.0 (2014-02-04)
+
+        * First official release of this major version.
+
